@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      VanillaTalk
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-label floating >Email address </ion-label> 
+            <ion-input [(ngModel)]="email" type="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Password</ion-label> 
+            <ion-input [(ngModel)]="password" type="password"></ion-input>
+          </ion-item>
+        </ion-card-content>
+        <ion-row>
+          <button ion-button outline (click)='register()'>Register</button>
+          <button ion-button (click)='login()' >Login</button>
+        </ion-row>
+      </ion-card>
+      
+
+<!-- 
+  <ion-list> 
+    <ion-item class="text" *ngFor="let item of items | async">
+      <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+      <ion-input type="text" [(ngModel)]="item.amount"></ion-input>
+      <button color="secondary" item-end ion-button round (click)="onEdit(item)"><ion-icon name="hammer"></ion-icon></button>
+      <button color="danger" item-end ion-button round (click)="onDelete(item)"><ion-icon name="trash"></ion-icon></button>
+    </ion-item>
+  </ion-list>
+  
+  <ion-fab button right bottom>
+    <button ion-fab (click)="onAdd()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab> -->
+</ion-content>
