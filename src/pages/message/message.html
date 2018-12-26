@@ -7,25 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{peerProf.firstName}}</ion-title>
+    <ion-title>{{peername}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding #content>
 
     <ng-container *ngFor='let msg of messageList | async' >
         <ion-item text-wrap *ngIf='msg.id != myid'>
           <ion-avatar item-left>
             <img src="assets/imgs/avatar.png"></ion-avatar>	
           <h2>{{msg.name}}</h2>
-          <p>{{msg.content}} {{msg?,when}}</p>
+          <p>{{msg.content}}</p>
+          <p>{{msg?.when}}</p>
         </ion-item>
           <ion-item class="chat_right" *ngIf="msg.id == myid">
             <ion-avatar item-right>
                 <img src="assets/imgs/avatar.png"></ion-avatar>	
               <h2>{{msg.name}}</h2>
-              <p>{{msg.content}} {{msg?,when}}</p>
+              <p>{{msg.content}}</p>
+              <p>{{msg?.when}}</p>      
+            <ion-badge *ngIf="msg.unread" color="danger">{{msg?.unread}}</ion-badge>
             </ion-item>      
       </ng-container>
 

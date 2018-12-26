@@ -32,14 +32,17 @@ export class FriendsPage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad FriendsPage');
-    this.profileList = this.db.list('profiles').snapshotChanges().pipe(map(changes =>  changes.map(c => 		({ key: c.payload.key, ...c.payload.val() }))));
+    this.profileList = this.db.list('profiles')
+    .snapshotChanges().pipe(map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))));
     console.log('myuid='+this.myuid);
 
-    this.subscription = this.db.object(`profiles/${this.myuid}`).valueChanges().subscribe( (result:Profile) => this.profile = result );
+    this.subscription = this.db.object(`profiles/${this.myuid}`)
+    .valueChanges().subscribe( (result:Profile) => this.profile = result );
     
   }
 
   onClick(profile) {
-    this.navCtrl.push('MessagePage', {peerProf: profile, peerId: profile.key, peername: profile.firstName, myname: this.myname} );
+    this.navCtrl.push('MessagePage', {peerProf: profile, peerId: profile.key,
+       peername: profile.firstName, myname: this.myname} );
   }
 }
